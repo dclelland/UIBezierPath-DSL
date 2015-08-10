@@ -3,15 +3,12 @@
 //
 //  Created by Daniel Clelland on 10/08/15.
 //
-
-/*
- * UIBezierPath+DSL provides a simple way to build bezier paths using a psuedo-DSL.
- *
- * Inspired by Masonry and TurtleBezierPath.
- *
- * https://github.com/SnapKit/Masonry
- * https://github.com/mindbrix/TurtleBezierPath
- */
+//  UIBezierPath+DSL provides a simple way to build bezier paths using a psuedo-DSL.
+//
+//  Inspired by Masonry and TurtleBezierPath:
+//  https://github.com/SnapKit/Masonry
+//  https://github.com/mindbrix/TurtleBezierPath
+//
 
 #import <UIKit/UIKit.h>
 
