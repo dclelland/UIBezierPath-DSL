@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.source                  = { :git => "https://github.com/dclelland/UIBezierPath-DSL.git", :tag => "0.1.0" }
   s.platform                = :ios, '7.0'
   s.ios.deployment_target   = '7.0'
-  s.ios.source_files        = 'UIBezierPath-DSL/*.{h,m}'
+  s.ios.source_files        = 'UIBezierPath+DSL/*.{h,m}'
   s.requires_arc            = true
 end
