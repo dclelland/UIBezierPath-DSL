@@ -2,10 +2,40 @@
 
 UIBezierPath+DSL provides a simple way to build bezier paths using a psuedo-DSL.
 
-### Examples:
+Inspired by [Masonry](https://github.com/SnapKit/Masonry) and [TurtleBezierPath](https://github.com/mindbrix/TurtleBezierPath).
+
+✓ Supports relative positioning.
 
 ```objc
-/* Examples go here */
+UIBezierPath *path = [UIBezierPath makePath:^(DSLBezierPathMaker *make) {
+    make.moveTo(CGPointMake(0.5, 0.5));
+    make.lineUp(0.5);
+    make.lineRight(0.5);
+    make.lineDown(0.5);
+    make.lineLeft(1.0);
+    make.lineDown(0.5);
+    make.lineRight(0.5);
+    make.closed();
+}];
+```
+
+✓ Supports transformations.
+
+```objc
+UIBezierPath *path = [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(0.0, 0.0, 1.0, 1.0)] makePath:^(DSLBezierPathMaker *make) {
+    make.scale(CGSizeMake(20.0, 20.0));
+    make.translate(CGPointMake(10.0, 10.0));
+}];
+```
+
+✓ Supports function chaining.
+
+```objc
+UIBezierPath *path = [UIBezierPath makePath:^(DSLBezierPathMaker *make) {
+    make.ovalAt(dialCenter, dialRadius).path([UIBezierPath makePath:^(DSLBezierPathMaker *make) {
+        make.moveTo(pointerA).lineTo(pointerB).lineTo(pointerC).close();
+    }]);
+}];
 ```
 
 ### Full API:
