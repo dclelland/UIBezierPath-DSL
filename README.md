@@ -13,80 +13,50 @@ UIBezierPath+DSL provides a simple way to build bezier paths using a psuedo-DSL.
 UIBezierPath (DSL)
 
 ```objc
-
 + (UIBezierPath *)makePath:(void(^)(DSLBezierPathMaker *make))block;
 
 - (UIBezierPath *)makePath:(void(^)(DSLBezierPathMaker *make))block;
-
 ```
 
-DSLBezierPathMaker : NSObject
+DSLBezierPathMaker
 
-```objc : NSObject
+```objc
+.moveTo(CGPoint point);
+.move(CGFloat distance, CGFloat direction);
+.moveUp(CGFloat distance);
+.moveLeft(CGFloat distance);
+.moveDown(CGFloat distance);
+.moveRight(CGFloat distance);
 
-@property (readonly) UIBezierPath *bezierPath;
+.lineTo(CGPoint point);
+.line(CGFloat distance, CGFloat direction);
+.lineUp(CGFloat distance);
+.lineLeft(CGFloat distance);
+.lineDown(CGFloat distance);
+.lineRight(CGFloat distance);
 
-- (instancetype)initWithBezierPath:(UIBezierPath *)bezierPath;
+.arcAt(CGPoint center, CGFloat radius, CGFloat startAngle, CGFloat endAngle, BOOL clockwise);
 
-/* Moves */
+.curveTo(CGPoint point, CGPoint controlPoint1, CGPoint controlPoint2);
 
-- (DSLBezierPathMaker *(^)(CGPoint point))moveTo;
-- (DSLBezierPathMaker *(^)(CGFloat distance, CGFloat direction))move;
-- (DSLBezierPathMaker *(^)(CGFloat distance))moveUp;
-- (DSLBezierPathMaker *(^)(CGFloat distance))moveLeft;
-- (DSLBezierPathMaker *(^)(CGFloat distance))moveDown;
-- (DSLBezierPathMaker *(^)(CGFloat distance))moveRight;
+.quadCurveTo(CGPoint point, CGPoint controlPoint);
 
-/* Lines */
+.transform(CGAffineTransform transform);
+.translate(CGPoint point);
+.scale(CGSize size);
+.rotate(CGFloat angle);
 
-- (DSLBezierPathMaker *(^)(CGPoint point))lineTo;
-- (DSLBezierPathMaker *(^)(CGFloat distance, CGFloat direction))line;
-- (DSLBezierPathMaker *(^)(CGFloat distance))lineUp;
-- (DSLBezierPathMaker *(^)(CGFloat distance))lineLeft;
-- (DSLBezierPathMaker *(^)(CGFloat distance))lineDown;
-- (DSLBezierPathMaker *(^)(CGFloat distance))lineRight;
+.path(UIBezierPath *path);
 
-/* Arcs */
+.rect(CGRect rect);
+.rectAt(CGPoint center, CGFloat radius);
 
-- (DSLBezierPathMaker *(^)(CGPoint center, CGFloat radius, CGFloat startAngle, CGFloat endAngle, BOOL clockwise))arcAt;
+.oval(CGRect rect);
+.ovalAt(CGPoint center, CGFloat radius);
 
-/* Curves */
+.roundedRect(CGRect rect, CGFloat cornerRadius);
+.roundedRectAt(CGPoint center, CGFloat radius, CGFloat cornerRadius);
 
-- (DSLBezierPathMaker *(^)(CGPoint point, CGPoint controlPoint1, CGPoint controlPoint2))curveTo;
-
-/* Quad curves */
-
-- (DSLBezierPathMaker *(^)(CGPoint point, CGPoint controlPoint))quadCurveTo;
-
-/* Translations */
-
-- (DSLBezierPathMaker *(^)(CGAffineTransform transform))transform;
-- (DSLBezierPathMaker *(^)(CGPoint point))translate;
-- (DSLBezierPathMaker *(^)(CGSize size))scale;
-- (DSLBezierPathMaker *(^)(CGFloat angle))rotate;
-
-/* Paths */
-
-- (DSLBezierPathMaker *(^)(UIBezierPath *path))path;
-
-/* Rects */
-
-- (DSLBezierPathMaker *(^)(CGRect rect))rect;
-- (DSLBezierPathMaker *(^)(CGPoint center, CGFloat radius))rectAt;
-
-/* Ovals */
-
-- (DSLBezierPathMaker *(^)(CGRect rect))oval;
-- (DSLBezierPathMaker *(^)(CGPoint center, CGFloat radius))ovalAt;
-
-/* Rounded rects */
-
-- (DSLBezierPathMaker *(^)(CGRect rect, CGFloat cornerRadius))roundedRect;
-- (DSLBezierPathMaker *(^)(CGPoint center, CGFloat radius, CGFloat cornerRadius))roundedRectAt;
-
-/* Closure */
-
-- (DSLBezierPathMaker *(^)(void))close;
-- (DSLBezierPathMaker *(^)(void))closed;
-
+.close();
+.closed();
 ```
