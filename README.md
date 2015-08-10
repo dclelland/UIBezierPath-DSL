@@ -32,9 +32,8 @@ UIBezierPath *path = [[UIBezierPath bezierPathWithOvalInRect:CGRectMake(0.0, 0.0
 
 ```objc
 UIBezierPath *path = [UIBezierPath makePath:^(DSLBezierPathMaker *make) {
-    make.ovalAt(dialCenter, dialRadius).path([UIBezierPath makePath:^(DSLBezierPathMaker *make) {
-        make.moveTo(pointerA).lineTo(pointerB).lineTo(pointerC).close();
-    }]);
+    make.ovalAt(CGPointMake(0.5, 0.5), 0.25);
+    make.moveTo(CGPointMake(0.0, 0.5)).lineTo(CGPointMake(0.5, 0.0)).lineTo(CGPointMake(1.0, 0.5)).lineTo(CGPointMake(0.5, 1.0)).close();
 }];
 ```
 
