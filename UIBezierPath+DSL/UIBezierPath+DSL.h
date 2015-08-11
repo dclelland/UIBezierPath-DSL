@@ -22,6 +22,15 @@
 
 @end
 
+static CGFloat DSLDirectionNorth = 1.5 * M_PI;
+static CGFloat DSLDirectionNorthEast = 1.75 * M_PI;
+static CGFloat DSLDirectionEast = 0.0 * M_PI;
+static CGFloat DSLDirectionSouthEast = 0.25 * M_PI;
+static CGFloat DSLDirectionSouth = 0.5 * M_PI;
+static CGFloat DSLDirectionSouthWest = 0.75 * M_PI;
+static CGFloat DSLDirectionWest = 1.0 * M_PI;
+static CGFloat DSLDirectionNorthWest = 1.25 * M_PI;
+
 @interface DSLBezierPathMaker : NSObject
 
 @property (readonly) UIBezierPath *bezierPath;
