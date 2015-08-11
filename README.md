@@ -39,6 +39,7 @@ UIBezierPath *path = [UIBezierPath makePath:^(DSLBezierPathMaker *make) {
 
 ✓ Direction helpers.
 
+```objc
 UIBezierPath *path = [UIBezierPath makePath:^(DSLBezierPathMaker *make) {
     make.move(1.0, DSLDirectionNorthEast);
     make.line(1.0, DSLDirectionSouthEast);
@@ -46,6 +47,7 @@ UIBezierPath *path = [UIBezierPath makePath:^(DSLBezierPathMaker *make) {
     make.line(1.0, DSLDirectionNorthWest);
     make.closed();
 }];
+```
 
 ### Full API:
 
